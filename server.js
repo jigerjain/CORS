@@ -15,11 +15,14 @@ app.use(express.static(__dirname))
 
 // Step 1 setting up ACAO for all the domains
 app.use((req, res, next) => {
-    let whitelist = ['localhost','http://localhost:9000'];
-    let regex = /^https?:\/\/localhost/g;
-    res.set('Access-Control-Allow-Credentials', 'true')
-    // Allow all approach
-//  res.set('Access-Control-Allow-Origin', '*')
+    let whitelist = ['cross-site','http://cross-site:9000'];
+    let regex = /^https?:\/\/cross/g;
+
+    //  Demo 1   (Allowing resources to be accessible by all)
+    //  Allow all approach
+    // res.set('Access-Control-Allow-Credentials', 'true')                <--- Demo 1 Uncomment this
+    
+    //  res.set('Access-Control-Allow-Origin', req.get('origin'))
 
     // Whitelisting approach
     /*
@@ -30,10 +33,15 @@ app.use((req, res, next) => {
     */
 
     // Regex approach
+    /*
     if (regex.test(req.get('origin'))){
         res.set('Access-Control-Allow-Origin', req.get('origin'))
         console.log("Regex approach")
     }
+    */
+    
+    // Preflight Test
+    /*
     if (isPreflight(req)) {
       // Headers to be set if there is a preflight request
       res.set('Access-Control-Allow-Methods', 'PUT, DELETE'),
@@ -45,12 +53,13 @@ app.use((req, res, next) => {
         //res.set('Access-Control-Expose-Headers', 'Can_You_See_This_Header') // Add this!
         
     }
+    */
     next()
 })
 
 // api call 
 app.get('/api/posts', (req, res) =>{
-    res.set('Set-Cookie', 'username=Celal; Path=/')
+    //res.set('Set-Cookie', 'username=Celal; Path=/')
     res.json([
       {id: 1, content: 'foo'},
       {id: 1, content: 'baaaar'},
@@ -59,10 +68,10 @@ app.get('/api/posts', (req, res) =>{
 
 // First server on port 8000
 app.listen(port1, () => {
-  console.log(`listening on port ${port1}`)
+  console.log(`Same-site listening on port ${port1}`)
 })
 
 // Second server on port 9000
 app.listen(port2, () => {
-  console.log(`listening on port ${port2}`)
+  console.log(`Cross-site listening on port ${port2}`)
 })

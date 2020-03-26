@@ -6,18 +6,21 @@
     <title>CORS Example</title>
 </head>
 <body>
-    <h1>How you doing people!!</h1>
+    <h1>    How you doing people!!</h1>
+    We would be refreshing our understanding on CORS using this Application!
     <script>
         (async () => {
-            const res = await fetch('http://localhost:8000/api/posts',{
+            const res = await fetch('http://same-site.com:8000/api/posts',{
                 // Add this to initiated pre-flight request
                 // method: 'DELETE',
                 //headers: new Headers({
                 //    'X-CUSTOM-HEADER': 'Hello CORS test'
                 //})
-                credentials: "include"              //<-- Set this to send cookies along with request to Cross Origin pages
+                //credentials: "include"              //<-- Set this to send cookies along with request to Cross Origin pages
             })
+            console.log('Response: ')
             console.log(await res.json())
+            console.log('Cookie: '+document.cookie)
             //console.log(Array.from(await res.headers.entries())) <- Header expose
         })()
         
