@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS Example</title>
+</head>
+<body>
+    <h1>How you doing people!</h1>
+    <script>
+        (async () => {
+          const res = await fetch('http://localhost:8000/api/posts')
+    
+          console.log(await res.json())
+        })()
+      </script>
+</body>
+</html>
