@@ -6,13 +6,21 @@
     <title>CORS Example</title>
 </head>
 <body>
-    <h1>How you doing people!</h1>
+    <h1>How you doing people!!</h1>
     <script>
         (async () => {
-          const res = await fetch('http://localhost:8000/api/posts')
-    
-          console.log(await res.json())
+            const res = await fetch('http://localhost:8000/api/posts',{
+                // Add this to initiated pre-flight request
+                // method: 'DELETE',
+                //headers: new Headers({
+                //    'X-CUSTOM-HEADER': 'Hello CORS test'
+                //})
+                credentials: "include"              //<-- Set this to send cookies along with request to Cross Origin pages
+            })
+            console.log(await res.json())
+            //console.log(Array.from(await res.headers.entries())) <- Header expose
         })()
+        
       </script>
 </body>
 </html>
