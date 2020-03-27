@@ -18,7 +18,7 @@
             console.log('Response Array: ')
             console.log(await res.json())
             console.log('Cookie: '+document.cookie)
-            //console.log(Array.from(await res.headers.entries())) <- Header expose
+            //console.log(Array.from(await res.headers.entries())) //<- Header expose
         })()
         
       </script>
@@ -43,6 +43,9 @@
 
     <h2>Demo 4: Sending credentials and cookies</h2>
     This time we would try to send some cookies and check how the server replies with new settings
+
+    <h2>Demo 5: Exposing Headers </h2>
+    This time we would try check if browser has something which it wants to expose or not    
 
 </body>
 </html>
