@@ -20,17 +20,18 @@ app.use((req, res, next) => {
 
     //  Demo 1   (Allowing resources to be accessible by all)
     //  Allow all approach
-    // res.set('Access-Control-Allow-Credentials', 'true')                <--- Demo 1 Uncomment this
+    // res.set('Access-Control-Allow-Credentials', 'true')                
+    // res.set('Access-Control-Allow-Origin', '*')                        <--- Demo 1 Uncomment this
     
     //  res.set('Access-Control-Allow-Origin', req.get('origin'))
 
     // Regex approach
-    
+    /*
     if (regex.test(req.get('origin'))){
         res.set('Access-Control-Allow-Origin', req.get('origin'))
         console.log("Regex approach")
     }
-    
+    */
     // Whitelisting approach
     /*
     if (whitelist.includes(req.get('origin'))){
@@ -39,8 +40,6 @@ app.use((req, res, next) => {
     }
     */
 
-
-    
     // Preflight Test
     /*
     if (isPreflight(req)) {
