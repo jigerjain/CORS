@@ -50,7 +50,7 @@ app.use((req, res, next) => {
       return
     } else {
         res.set('Can_You_See_This_Header', '120')
-        res.set('Access-Control-Expose-Headers', 'Can_You_See_This_Header') // Add this!  <-- Demo 5 Uncomment this
+        res.set('Access-Control-Expose-Headers', 'Can_You_See_This_Header') // Add this!   <-- Demo 5
         
     }
     */
@@ -59,7 +59,7 @@ app.use((req, res, next) => {
 
 // api call 
 app.get('/api/posts', (req, res) =>{
-    //res.set('Set-Cookie', 'username=Celal; Path=/')                      // <--- Demo 4 Uncomment this
+    res.set('Set-Cookie', 'username=Celal; Path=/')                      // <--- Demo 4 Uncomment this
     res.json([
       {id: 1, content: 'foo'},
       {id: 1, content: 'baaaar'},
