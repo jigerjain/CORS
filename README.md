@@ -11,3 +11,6 @@ npm, node and browser :P
 
 CORS testing application could be emulated by cloning the repo and running the server using   
 node server.js
+
+Demo 1:
+Try to access same-site api from cross-site

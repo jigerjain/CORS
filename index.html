@@ -4,13 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CORS Example</title>
-</head>
-<body>
-    <h1>    How you doing people!!</h1>
-    We would be refreshing our understanding on CORS using this Application!
     <script>
         (async () => {
-            const res = await fetch('http://same-site.com:8000/api/posts',{
+            const res = await fetch('http://cross.site:8000/api/posts',{
                 // Add this to initiated pre-flight request
                 // method: 'DELETE',
                 //headers: new Headers({
@@ -18,12 +14,32 @@
                 //})
                 //credentials: "include"              //<-- Set this to send cookies along with request to Cross Origin pages
             })
-            console.log('Response: ')
+            console.log('Origin: '+origin)
+            console.log('Response Array: ')
             console.log(await res.json())
             console.log('Cookie: '+document.cookie)
             //console.log(Array.from(await res.headers.entries())) <- Header expose
         })()
         
       </script>
+</head>
+<body>
+    <h1>    How you doing people!!</h1>
+    We would be refreshing our understanding on CORS using this Application!
+
+    <h2>Demo 1: Fetching cross.site resources</h2>
+    First we would try to fetch an api(api/post) of cross.site:8000 from the amazing.world:9000 website and see check our console for details
+    Did you see any error??
+
+    <h2>Demo 2: Allow amazing.world to access the api</h2>
+    Adding Access-Control-Allow-Headers on the server to see the changes<br>
+    There are 3 approaches now, we would look into few vulnerabilities of each methods if not set properly<br><br>
+    <li>Allow all: *</li>
+    <li>Regular expression allowing</li>
+    <li>Whitelisting</li>
+
+    <h2>Demo 3: Preflight requests</h2>
+    This time we would try to access the api by not using simple request which would indeed call for preflight request
+
 </body>
 </html>

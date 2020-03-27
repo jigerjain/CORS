@@ -15,8 +15,8 @@ app.use(express.static(__dirname))
 
 // Step 1 setting up ACAO for all the domains
 app.use((req, res, next) => {
-    let whitelist = ['cross-site','http://cross-site:9000'];
-    let regex = /^https?:\/\/cross/g;
+    let whitelist = ['http://amazing.world:9000'];
+    let regex = /^https?:\/\/amazing/g;
 
     //  Demo 1   (Allowing resources to be accessible by all)
     //  Allow all approach
@@ -24,6 +24,13 @@ app.use((req, res, next) => {
     
     //  res.set('Access-Control-Allow-Origin', req.get('origin'))
 
+    // Regex approach
+    
+    if (regex.test(req.get('origin'))){
+        res.set('Access-Control-Allow-Origin', req.get('origin'))
+        console.log("Regex approach")
+    }
+    
     // Whitelisting approach
     /*
     if (whitelist.includes(req.get('origin'))){
@@ -32,13 +39,7 @@ app.use((req, res, next) => {
     }
     */
 
-    // Regex approach
-    /*
-    if (regex.test(req.get('origin'))){
-        res.set('Access-Control-Allow-Origin', req.get('origin'))
-        console.log("Regex approach")
-    }
-    */
+
     
     // Preflight Test
     /*
