@@ -12,17 +12,10 @@ npm, node and browser :P
 CORS testing application could be emulated by cloning the repo and running the server using   
 node server.js   
    
-<<<<<<< HEAD
 ### Demo 1: Fetching cross.site resources   
 First we would try to fetch an api(api/post) of cross.site:8000 from the amazing.world:9000 website and see check our console for details Did you see any error??   
 
 ### Demo 2: Allow amazing.world to access the api   
-=======
-#### Demo 1: Fetching cross.site resources   
-First we would try to fetch an api(api/post) of cross.site:8000 from the amazing.world:9000 website and see check our console for details Did you see any error??   
-
-#### Demo 2: Allow amazing.world to access the api   
->>>>>>> 0ac14f1cb6f3f15d0a7e47f27978f589ade1254c
 Adding Access-Control-Allow-Headers on the server to see the changes   
 There are 3 approaches now, we would look into few vulnerabilities of each methods if not set properly   
    
@@ -30,17 +23,10 @@ Allow all: *
 Regular expression allowing   
 Whitelisting   
 
-<<<<<<< HEAD
-### Demo 3: Preflight requests   
-This time we would try to access the api by not using simple request which would indeed call for preflight request   
-
-### Demo 4: Sending credentials and cookies   
-=======
 #### Demo 3: Preflight requests   
 This time we would try to access the api by not using simple request which would indeed call for preflight request   
 
 #### Demo 4: Sending credentials and cookies   
->>>>>>> 0ac14f1cb6f3f15d0a7e47f27978f589ade1254c
 This time we would try to send some cookies and check how the server replies with new settings   
    
 ### Demo 5: Exposing Headers     
