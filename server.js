@@ -20,19 +20,19 @@ app.use((req, res, next) => {
 
     //  Demo 1   (Allowing resources to be accessible by all)
     //  Allow all approach
-    // res.set('Access-Control-Allow-Credentials', 'true')                
-    // res.set('Access-Control-Allow-Origin', '*')                        <--- Demo 1 Uncomment this
+    // res.set('Access-Control-Allow-Credentials', 'true')                  <--- Demo 4 Uncomment this           
+    // res.set('Access-Control-Allow-Origin', '*')                          <--- Demo 1/2.1 Uncomment this
     
-    //  res.set('Access-Control-Allow-Origin', req.get('origin'))
+    //  res.set('Access-Control-Allow-Origin', req.get('origin'))           <--- Demo 4 Uncomment this
 
-    // Regex approach
+    // Regex approach                                                       <--- Demo 2.2 Uncomment this
     /*
     if (regex.test(req.get('origin'))){
         res.set('Access-Control-Allow-Origin', req.get('origin'))
         console.log("Regex approach")
     }
     */
-    // Whitelisting approach
+    // Whitelisting approach                                                <--- Demo 2.3 Uncomment this
     /*
     if (whitelist.includes(req.get('origin'))){
         res.set('Access-Control-Allow-Origin', req.get('origin'))
@@ -40,7 +40,7 @@ app.use((req, res, next) => {
     }
     */
 
-    // Preflight Test
+    // Preflight Test                                                       <--- Demo 3 Uncomment this
     /*
     if (isPreflight(req)) {
       // Headers to be set if there is a preflight request
@@ -59,7 +59,7 @@ app.use((req, res, next) => {
 
 // api call 
 app.get('/api/posts', (req, res) =>{
-    //res.set('Set-Cookie', 'username=Celal; Path=/')
+    //res.set('Set-Cookie', 'username=Celal; Path=/')                       <--- Demo 4 Uncomment this
     res.json([
       {id: 1, content: 'foo'},
       {id: 1, content: 'baaaar'},
