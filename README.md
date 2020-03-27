@@ -28,3 +28,6 @@ This time we would try to access the api by not using simple request which would
 
 ### Demo 4: Sending credentials and cookies   
 This time we would try to send some cookies and check how the server replies with new settings   
+   
+### Demo 5: Exposing Headers     
+This time we would try check if browser has something which it wants to expose or not    

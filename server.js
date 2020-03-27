@@ -20,10 +20,10 @@ app.use((req, res, next) => {
 
     //  Demo 1   (Allowing resources to be accessible by all)
     //  Allow all approach
-    // res.set('Access-Control-Allow-Credentials', 'true')                  <--- Demo 4 Uncomment this           
-    // res.set('Access-Control-Allow-Origin', '*')                          <--- Demo 1/2.1 Uncomment this
+    // res.set('Access-Control-Allow-Credentials', 'true')                  //<--- Demo 4 Uncomment this           
+    // res.set('Access-Control-Allow-Origin', '*')                          //<--- Demo 1/2.1 Uncomment this
     
-    //  res.set('Access-Control-Allow-Origin', req.get('origin'))           <--- Demo 4 Uncomment this
+    //  res.set('Access-Control-Allow-Origin', req.get('origin'))           //<--- Demo 4 Uncomment this
 
     // Regex approach                                                       <--- Demo 2.2 Uncomment this
     /*
@@ -50,7 +50,7 @@ app.use((req, res, next) => {
       return
     } else {
         res.set('Can_You_See_This_Header', '120')
-        //res.set('Access-Control-Expose-Headers', 'Can_You_See_This_Header') // Add this!
+        res.set('Access-Control-Expose-Headers', 'Can_You_See_This_Header') // Add this!  <-- Demo 5 Uncomment this
         
     }
     */
@@ -59,7 +59,7 @@ app.use((req, res, next) => {
 
 // api call 
 app.get('/api/posts', (req, res) =>{
-    //res.set('Set-Cookie', 'username=Celal; Path=/')                       <--- Demo 4 Uncomment this
+    //res.set('Set-Cookie', 'username=Celal; Path=/')                      // <--- Demo 4 Uncomment this
     res.json([
       {id: 1, content: 'foo'},
       {id: 1, content: 'baaaar'},
